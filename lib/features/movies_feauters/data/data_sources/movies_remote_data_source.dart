@@ -6,7 +6,7 @@ import 'package:movies_app_clean_arch/features/movies_feauters/domain/entities/m
 
 import '../../../../core/errors/error_class.dart';
 
-abstract class BaseHomeRemoteDataSource {
+abstract class BaseMovieRemoteDataSource {
 
 
   Future<List<MovieEntity>> fetchPlayingNowMovieInRemoteDataSource();
@@ -16,12 +16,12 @@ abstract class BaseHomeRemoteDataSource {
 }
 
 
-class  HomeRemoteDataSourceImplementation extends BaseHomeRemoteDataSource
+class  MovieRemoteDataSourceImplementation extends BaseMovieRemoteDataSource
 {
 
   @override
   Future<List<MovieEntity>> fetchPlayingNowMovieInRemoteDataSource() async{
-    var response =  await Dio().get("/movie/now_playing?api_key=${AppConstance.apiKey}");
+    var response =  await Dio().get(AppConstance.getNowPlayingUrl);
     if(response.statusCode==200){
       return List<MovieModel>.from((response.data["results"] as List).map((e){
         return MovieModel.fromJson(e);
