@@ -4,7 +4,8 @@ import 'package:movies_app_clean_arch/core/utils/app_constance.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/data/models/movie_model.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/domain/entities/movie_entity.dart';
 
-import '../../../../core/errors/error_class.dart';
+import '../../../../core/nerwork/excption.dart';
+
 
 abstract class BaseMovieRemoteDataSource {
 
