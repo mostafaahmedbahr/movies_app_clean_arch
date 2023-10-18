@@ -1,18 +1,24 @@
 part of 'movies_bloc.dart';
 
 @immutable
-abstract class MoviesState {}
+abstract class MoviesStates {}
 
-class MoviesInitial extends MoviesState {}
+class MoviesInitialState extends MoviesStates {}
 
-class GetNowPlayingMoviesLoadingState extends MoviesState {}
-class GetNowPlayingMoviesSuccessState extends MoviesState {}
-class GetNowPlayingMoviesErrorState extends MoviesState {}
+class GetNowPlayingMoviesLoadingState extends MoviesStates {}
+class GetNowPlayingMoviesSuccessState extends MoviesStates {
+  final List<MovieEntity> moviesList;
+  GetNowPlayingMoviesSuccessState(this.moviesList);
+}
+class GetNowPlayingMoviesErrorState extends MoviesStates {
+  final String error;
+  GetNowPlayingMoviesErrorState(this.error);
+}
 
-class GetPopularMoviesLoadingState extends MoviesState {}
-class GetPopularMoviesSuccessState extends MoviesState {}
-class GetPopularMoviesErrorState extends MoviesState {}
+class GetPopularMoviesLoadingState extends MoviesStates {}
+class GetPopularMoviesSuccessState extends MoviesStates {}
+class GetPopularMoviesErrorState extends MoviesStates {}
 
-class GetTopRatedMoviesLoadingState extends MoviesState {}
-class GetTopRatedMoviesSuccessState extends MoviesState {}
-class GetTopRatedMoviesErrorState extends MoviesState {}
+class GetTopRatedMoviesLoadingState extends MoviesStates {}
+class GetTopRatedMoviesSuccessState extends MoviesStates {}
+class GetTopRatedMoviesErrorState extends MoviesStates {}

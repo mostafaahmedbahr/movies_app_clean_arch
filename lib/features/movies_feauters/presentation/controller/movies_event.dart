@@ -1,8 +1,8 @@
 part of 'movies_bloc.dart';
 
 @immutable
-abstract class MoviesEvent {}
+abstract class MoviesEvents {}
 
-class FetchNowPlayingMovieEvent extends MoviesEvent{}
-class FetchPopularMoviesEvent extends MoviesEvent{}
-class FetchTopRatedMoviesEvent extends MoviesEvent{}
+class FetchNowPlayingMovieEvent extends MoviesEvents{}
+class FetchPopularMoviesEvent extends MoviesEvents{}
+class FetchTopRatedMoviesEvent extends MoviesEvents{}
