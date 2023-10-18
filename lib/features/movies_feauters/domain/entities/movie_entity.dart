@@ -8,11 +8,11 @@ class MovieEntity {
   final List<int> movieEntityGenreIds;
 
   MovieEntity(
-      this.movieEntityId,
-      this.movieEntityBackdropPath,
-      this.movieEntityOriginalTitle,
-      this.movieEntityGenreIds,
-      this.movieEntityOverview,
-      this.movieEntityVoteAverage,
-      this.movieEntityVoteCount);
+      {required this.movieEntityId,
+      required this.movieEntityBackdropPath,
+      required this.movieEntityOriginalTitle,
+      required this.movieEntityGenreIds,
+      required this.movieEntityOverview,
+      required this.movieEntityVoteAverage,
+      required this.movieEntityVoteCount});
 }
