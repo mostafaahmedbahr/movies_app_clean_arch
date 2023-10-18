@@ -32,15 +32,27 @@ class  MovieRemoteDataSourceImplementation extends BaseMovieRemoteDataSource
   }
 
   @override
-  Future<List<MovieEntity>> fetchPopularMoviesInRemoteDataSource() {
-    // TODO: implement fetchPopularMoviesInRemoteDataSource
-    throw UnimplementedError();
+  Future<List<MovieEntity>> fetchPopularMoviesInRemoteDataSource() async{
+    var response =  await Dio().get(AppConstance.getPopularUrl);
+    if(response.statusCode==200){
+      return List<MovieModel>.from((response.data["results"] as List).map((e){
+        return MovieModel.fromJson(e);
+      }));
+    }else{
+      return throw(ServerError( networkErrorModel: NetworkErrorModel.fromJson(response.data)));
+    }
   }
 
   @override
-  Future<List<MovieEntity>> fetchTopRatedMoviesInRemoteDataSource() {
-    // TODO: implement fetchTopRatedMoviesInRemoteDataSource
-    throw UnimplementedError();
+  Future<List<MovieEntity>> fetchTopRatedMoviesInRemoteDataSource() async{
+    var response =  await Dio().get(AppConstance.getTopRatedUrl);
+    if(response.statusCode==200){
+      return List<MovieModel>.from((response.data["results"] as List).map((e){
+        return MovieModel.fromJson(e);
+      }));
+    }else{
+      return throw(ServerError( networkErrorModel: NetworkErrorModel.fromJson(response.data)));
+    }
   }
 
 }
