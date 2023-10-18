@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:movies_app_clean_arch/core/nerwork/network_error_model.dart';
 import 'package:movies_app_clean_arch/core/utils/app_constance.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/data/models/movie_model.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/domain/entities/movie_entity.dart';
+
+import '../../../../core/errors/error_class.dart';
 
 abstract class BaseHomeRemoteDataSource {
 
@@ -24,7 +27,7 @@ class  HomeRemoteDataSourceImplementation extends BaseHomeRemoteDataSource
         return MovieModel.fromJson(e);
       }));
     }else{
-      return [];
+      return throw(ServerError( networkErrorModel: NetworkErrorModel.fromJson(response.data)));
     }
   }
 
