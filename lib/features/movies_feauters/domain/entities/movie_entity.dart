@@ -1,3 +1,42 @@
+import 'package:equatable/equatable.dart';
+
+class MovieEntity extends Equatable {
+  final int movieEntityId;
+  final String movieEntityBackdropPath;
+  final String movieEntityOriginalTitle;
+  final String movieEntityOverview;
+  final String movieEntityReleaseDate;
+  final num movieEntityVoteAverage;
+  final num movieEntityVoteCount;
+  final List<int> movieEntityGenreIds;
+
+  // نحط const عشان نمنع التكرار ال object عشان الاداء وال memory
+
+  // أو استخدمEquatable
+  const MovieEntity(
+      {required this.movieEntityId,
+      required this.movieEntityBackdropPath,
+      required this.movieEntityOriginalTitle,
+      required this.movieEntityGenreIds,
+      required this.movieEntityOverview,
+      required this.movieEntityReleaseDate,
+      required this.movieEntityVoteAverage,
+      required this.movieEntityVoteCount});
+
+  @override
+  @override
+  List<Object> get props => [
+        movieEntityId,
+        movieEntityBackdropPath,
+        movieEntityOriginalTitle,
+        movieEntityOverview,
+        movieEntityVoteAverage,
+        movieEntityVoteCount,
+        movieEntityGenreIds,
+        movieEntityReleaseDate,
+      ];
+}
+
 // class MovieEntity {
 //   final int movieEntityId;
 //   final String movieEntityBackdropPath;
@@ -44,43 +83,3 @@
 //       movieEntityGenreIds.hashCode;
 // }
 //
-
-
-import 'package:equatable/equatable.dart';
-
-class MovieEntity extends Equatable {
-  final int movieEntityId;
-  final String movieEntityBackdropPath;
-  final String movieEntityOriginalTitle;
-  final String movieEntityOverview;
-  final num movieEntityVoteAverage;
-  final num movieEntityVoteCount;
-  final List<int> movieEntityGenreIds;
-
-
-  // نحط const عشان نمنع التكرار ال object عشان الاداء وال memory
-
-  // أو استخدمEquatable
-  const MovieEntity({required this.movieEntityId,
-    required this.movieEntityBackdropPath,
-    required this.movieEntityOriginalTitle,
-    required this.movieEntityGenreIds,
-    required this.movieEntityOverview,
-    required this.movieEntityVoteAverage,
-    required this.movieEntityVoteCount});
-
-  @override
-  @override
-  List<Object> get props =>
-      [
-        movieEntityId,
-        movieEntityBackdropPath,
-        movieEntityOriginalTitle,
-        movieEntityOverview,
-        movieEntityVoteAverage,
-        movieEntityVoteCount,
-        movieEntityGenreIds,
-      ];
-
-
-}
