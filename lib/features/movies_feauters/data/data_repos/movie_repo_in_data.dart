@@ -9,9 +9,10 @@ import 'package:movies_app_clean_arch/features/movies_feauters/domain/repos/base
 class MovieRepoImplementation extends BaseMovieRepo
 {
   final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
-  final BaseMovieLocalDataSource baseMovieLocalDataSource;
+ // final BaseMovieLocalDataSource baseMovieLocalDataSource;
 
-  MovieRepoImplementation({required this.baseMovieRemoteDataSource, required this.baseMovieLocalDataSource});
+  MovieRepoImplementation({required this.baseMovieRemoteDataSource,
+    });
 
   @override
   Future<Either<Errors, List<MovieEntity>>> fetchPlayingNowMovie()async {
