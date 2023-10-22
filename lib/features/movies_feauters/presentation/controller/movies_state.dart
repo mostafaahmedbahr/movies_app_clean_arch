@@ -16,8 +16,14 @@ class GetNowPlayingMoviesErrorState extends MoviesStates {
 }
 
 class GetPopularMoviesLoadingState extends MoviesStates {}
-class GetPopularMoviesSuccessState extends MoviesStates {}
-class GetPopularMoviesErrorState extends MoviesStates {}
+class GetPopularMoviesSuccessState extends MoviesStates {
+  final List<MovieEntity> popularMoviesList;
+  GetPopularMoviesSuccessState(this.popularMoviesList);
+}
+class GetPopularMoviesErrorState extends MoviesStates {
+  final String error;
+  GetPopularMoviesErrorState(this.error);
+}
 
 class GetTopRatedMoviesLoadingState extends MoviesStates {}
 class GetTopRatedMoviesSuccessState extends MoviesStates {}
