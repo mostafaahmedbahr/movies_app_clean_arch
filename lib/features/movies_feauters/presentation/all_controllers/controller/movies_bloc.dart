@@ -35,5 +35,9 @@ class MoviesBloc extends Bloc<MoviesEvents, MoviesStates> {
 
 
 
+
+
+
+
   }
 }

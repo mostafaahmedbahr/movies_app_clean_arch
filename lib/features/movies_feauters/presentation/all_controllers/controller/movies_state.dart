@@ -15,3 +15,4 @@ class GetNowPlayingMoviesErrorState extends MoviesStates {
   GetNowPlayingMoviesErrorState(this.error);
 }
 
+

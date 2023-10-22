@@ -5,3 +5,4 @@ abstract class MoviesEvents {}
 
 class FetchNowPlayingMovieEvent extends MoviesEvents{}
 
+

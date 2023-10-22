@@ -18,6 +18,8 @@ class TopRatedCustomWidget extends StatelessWidget {
         ..add(FetchTopRatedMoviesEvent3()),
       child: BlocBuilder<MoviesBloc3, MoviesStates3>(
         builder: (context, state) {
+          print(state);
+          print("mostaf in TopRatedCustomWidget");
           final moviesBloc = context.read<MoviesBloc3>();
           if (state is GetTopRatedMoviesSuccessState3) {
             return FadeIn(
