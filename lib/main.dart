@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'core/service_locator/service_locator.dart';
 import 'core/utils/bloc_observer.dart';
-import 'features/movies_feauters/presentation/views/movie_view.dart';
+import 'features/movies_feauters/presentation/views/movies_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MovieView(),
+      home: const MainMoviesScreen(),
     );
   }
 }

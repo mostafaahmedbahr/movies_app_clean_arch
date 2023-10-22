@@ -42,9 +42,11 @@ dependencies:
   dio: ^5.3.3
   conditional_builder_null_safety: ^0.0.6
   get_it: ^7.6.4
-
-
-
+  animate_do: ^3.1.2
+  cached_network_image: ^3.3.0
+  carousel_slider: ^4.2.1
+  google_fonts: ^6.1.0
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

@@ -5,5 +5,5 @@ class AppConstance
   static const String getNowPlayingUrl = "$baseUrl/movie/now_playing?api_key=$apiKey";
  static const String getPopularUrl = "$baseUrl/movie/popular?api_key=$apiKey";
  static const String getTopRatedUrl = "$baseUrl/movie/top_rated?api_key=$apiKey";
- // static const String getNowPlayingUrl = "$baseUrl/movie/now_playing?api_key=$apiKey";
+ static const String imagesUrlPath = "https://image.tmdb.org/t/p/w500";
 }
