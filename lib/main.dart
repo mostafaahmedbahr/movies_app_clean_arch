@@ -1,12 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
+import 'core/service_locator/service_locator.dart';
 import 'core/utils/bloc_observer.dart';
 import 'features/movies_feauters/presentation/views/movie_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = SimpleBlocObserver();
+  ServiceLocator().init();
   runApp(const MyApp());
 }
 
