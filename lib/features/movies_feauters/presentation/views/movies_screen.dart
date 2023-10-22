@@ -5,14 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movies_app_clean_arch/core/service_locator/service_locator.dart';
-import 'package:movies_app_clean_arch/features/movies_feauters/presentation/controller/movies_bloc.dart';
-import 'package:movies_app_clean_arch/features/movies_feauters/presentation/views/widgets/now_playing_widget.dart';
+ import 'package:movies_app_clean_arch/features/movies_feauters/presentation/views/widgets/now_playing_widget.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/presentation/views/widgets/popular_widget.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/presentation/views/widgets/top_rated_widget.dart';
-import 'package:shimmer/shimmer.dart';
 
-import '../../../../core/utils/app_constance.dart';
-import '../../../../core/utils/dummy.dart';
+import '../all_controllers/controller/movies_bloc.dart';
 
 class MainMoviesScreen extends StatelessWidget {
   const MainMoviesScreen({Key? key}) : super(key: key);
@@ -20,10 +17,8 @@ class MainMoviesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          MoviesBloc(getIt(), getIt())
-            ..add(FetchPopularMoviesEvent())
-            ..add(FetchNowPlayingMovieEvent()),
+      create: (context) => getIt<MoviesBloc>()
+        ..add(FetchNowPlayingMovieEvent()),
       child: SafeArea(
           child: Scaffold(
         body: SingleChildScrollView(

@@ -3,10 +3,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app_clean_arch/features/movies_feauters/presentation/controller/movies_bloc.dart';
 
 import '../../../../../core/utils/app_constance.dart';
-import '../../../../../core/utils/dummy.dart';
+import '../../all_controllers/controller/movies_bloc.dart';
 
 class NowPlayingCustomWidget extends StatelessWidget {
   const NowPlayingCustomWidget({Key? key}) : super(key: key);
@@ -15,6 +14,7 @@ class NowPlayingCustomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesStates>(
       builder: (context, state) {
+        final moviesBloc = context.read<MoviesBloc>();
         print(state);
         print("mostaf in NowPlayingCustomWidget");
         if(state is GetNowPlayingMoviesSuccessState){
@@ -26,7 +26,7 @@ class NowPlayingCustomWidget extends StatelessWidget {
                 viewportFraction: 1.0,
                 onPageChanged: (index, reason) {},
               ),
-              items: state.moviesList.map(
+              items:  state.moviesList.map(
                     (item) {
                   return GestureDetector(
                     key: const Key('openMovieMinimalDetail'),
