@@ -1,3 +1,4 @@
+import 'package:movies_app_clean_arch/features/movie_details_feauters/data/models/geners_model.dart';
 import 'package:movies_app_clean_arch/features/movie_details_feauters/domain/entities/movie_details_entites.dart';
 
 class MovieDetailsModel extends MovieDetailsEntities {
@@ -24,6 +25,6 @@ class MovieDetailsModel extends MovieDetailsEntities {
           voteCount: json['vote_count'],
           voteAverage: json['vote_average'],
           runTime: json['runtime'],
-          genres: json['genres'],
+          genres: List<GenresModel>.from(json['genres'].map((e) => e)),
       );
 }
