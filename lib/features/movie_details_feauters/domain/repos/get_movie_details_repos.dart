@@ -8,5 +8,5 @@ abstract class BaseGetMovieDetailsRepos {
 
   Future<Either<Errors,  MovieDetailsEntities>> fetchMovieDetails(MovieDetailsParams params);
 
-  Future<Either<Errors,  MovieDetailsEntities>> fetchRelatedMovies();
+  Future<Either<Errors,  MovieDetailsEntities>> fetchRelatedMovies(MovieDetailsParams params);
 }
