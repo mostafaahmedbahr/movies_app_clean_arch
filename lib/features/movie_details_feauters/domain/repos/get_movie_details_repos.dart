@@ -5,7 +5,7 @@ import '../entities/movie_details_entites.dart';
 
 abstract class BaseGetMovieDetailsRepos {
 
-  Future<Either<Errors, List<MovieDetailsEntities>>> fetchMovieDetails();
+  Future<Either<Errors,  MovieDetailsEntities>> fetchMovieDetails();
 
-  Future<Either<Errors, List<MovieDetailsEntities>>> fetchRelatedMovies();
+  Future<Either<Errors,  MovieDetailsEntities>> fetchRelatedMovies();
 }

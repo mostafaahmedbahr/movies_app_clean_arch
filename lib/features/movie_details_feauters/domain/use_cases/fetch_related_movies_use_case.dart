@@ -10,7 +10,7 @@ class FetchRelatedMoviesUseCase extends UseCaseWithParam{
   FetchRelatedMoviesUseCase(this.baseGetMovieDetailsRepos);
 
   @override
-  Future<Either<Errors, List<MovieDetailsEntities>>> call(param) async{
+  Future<Either<Errors, MovieDetailsEntities>> call(param) async{
     return  await baseGetMovieDetailsRepos.fetchRelatedMovies();
   }
 
