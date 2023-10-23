@@ -10,8 +10,9 @@ class MovieDetailsEntities {
   final num runTime;
   final List<Genre> genres;
 
+  MovieDetailsEntities({required this.id, required this.backdropPath, required this.title, required this.posterPath, required this.overview, required this.releaseDate, required this.voteCount, required this.voteAverage, required this.runTime, required this.genres});
 
-  MovieDetailsEntities(this.runTime, this.genres, {required this.id, required this.backdropPath, required this.title, required this.posterPath, required this.overview, required this.releaseDate, required this.voteCount, required this.voteAverage, });
+
 
 
 }
