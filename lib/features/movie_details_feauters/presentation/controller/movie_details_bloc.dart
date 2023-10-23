@@ -1,7 +1,6 @@
-import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 import '../../domain/use_cases/fetch_movie_details_use_case.dart';
 
@@ -15,7 +14,7 @@ class MovieDetailsBloc extends Bloc<MovieDetailsEvent, MovieDetailsState> {
   MovieDetailsBloc(this.fetchMovieDetailsUseCase) : super(MovieDetailsInitial()) {
     on<GetMovieDetailsEvent>((event, emit) async {
        emit(GetMovieDetailsLoadingState());
-       var result =  await fetchMovieDetailsUseCase.call(event.movieId);
+       var result =  await fetchMovieDetailsUseCase.call(MovieDetailsParams(event.movieId , ));
        print(result);
        print("get movie details ");
        result.fold((l){

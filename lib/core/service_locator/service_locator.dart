@@ -1,8 +1,11 @@
 import 'package:get_it/get_it.dart';
+import 'package:movies_app_clean_arch/features/movie_details_feauters/domain/use_cases/fetch_movie_details_use_case.dart';
+import 'package:movies_app_clean_arch/features/movie_details_feauters/domain/use_cases/fetch_related_movies_use_case.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/domain/use_cases/fetch_playing_now_movie_use_case.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/domain/use_cases/fetch_popular_movies_use_case.dart';
 import 'package:movies_app_clean_arch/features/movies_feauters/domain/use_cases/fetch_top_rated_movies_use_case.dart';
 
+import '../../features/movie_details_feauters/presentation/controller/movie_details_bloc.dart';
 import '../../features/movies_feauters/data/data_repos/movie_repo_in_data.dart';
 import '../../features/movies_feauters/data/data_sources/movies_remote_data_source.dart';
 import '../../features/movies_feauters/domain/repos/base_movie_repo.dart';
@@ -23,10 +26,13 @@ class ServiceLocator{
     getIt.registerFactory(() => MoviesBloc(  getIt()));
     getIt.registerFactory(() => MoviesBloc2( getIt()));
     getIt.registerFactory(() => MoviesBloc3( getIt()));
+    getIt.registerFactory(() => MovieDetailsBloc( getIt()));
     // use case
     getIt.registerLazySingleton(() => FetchPlayingNowMovieUseCase( getIt()));
     getIt.registerLazySingleton(() => FetchPopularMoviesUseCase( getIt()));
     getIt.registerLazySingleton(() => FetchTopRatedMoviesUseCase( getIt()));
+    getIt.registerLazySingleton(() => FetchMovieDetailsUseCase( getIt()));
+    getIt.registerLazySingleton(() => FetchRelatedMoviesUseCase( getIt()));
 
     // repo
     getIt.registerLazySingleton<BaseMovieRepo>(() => MovieRepoImplementation( baseMovieRemoteDataSource: getIt()));

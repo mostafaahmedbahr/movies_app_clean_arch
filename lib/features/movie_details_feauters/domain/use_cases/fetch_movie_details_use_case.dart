@@ -22,7 +22,7 @@ class FetchMovieDetailsUseCase extends UseCaseWithParam<MovieDetailsEntities , M
   // عشان اعرف ابعت اكتر من param
   class MovieDetailsParams {
   final int movieId;
-  final String movieName;
 
-  MovieDetailsParams(this.movieId, this.movieName);
+
+  MovieDetailsParams(this.movieId, );
   }
