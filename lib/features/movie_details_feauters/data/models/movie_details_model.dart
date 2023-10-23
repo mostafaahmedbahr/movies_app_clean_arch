@@ -25,6 +25,6 @@ class MovieDetailsModel extends MovieDetailsEntities {
           voteCount: json['vote_count'],
           voteAverage: json['vote_average'],
           runTime: json['runtime'],
-          genres: List<GenresModel>.from(json['genres'].map((e) => e)),
+          genres: List<GenresModel>.from(json['genres'].map((e) => GenresModel.fromJson(e))),
       );
 }

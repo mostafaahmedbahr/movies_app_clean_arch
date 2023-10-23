@@ -16,33 +16,34 @@ import '../../features/movies_feauters/presentation/all_controllers/controller/m
 import '../../features/movies_feauters/presentation/all_controllers/controller2/movies_bloc.dart';
 import '../../features/movies_feauters/presentation/all_controllers/controller3/movies_bloc.dart';
 
-
 final getIt = GetIt.instance;
 
-class ServiceLocator{
-
-  void init()
-  {
-    
+class ServiceLocator {
+  void init() {
     //bloc
     // هنا عشان يعمل اوبجيكت جديد كل مرة
-    getIt.registerFactory(() => MoviesBloc(  getIt()));
-    getIt.registerFactory(() => MoviesBloc2( getIt()));
-    getIt.registerFactory(() => MoviesBloc3( getIt()));
-    getIt.registerFactory(() => MovieDetailsBloc( getIt()));
+    getIt.registerFactory(() => MoviesBloc(getIt()));
+    getIt.registerFactory(() => MoviesBloc2(getIt()));
+    getIt.registerFactory(() => MoviesBloc3(getIt()));
+    getIt.registerFactory(() => MovieDetailsBloc(getIt() , getIt()));
     // use case
-    getIt.registerLazySingleton(() => FetchPlayingNowMovieUseCase( getIt()));
-    getIt.registerLazySingleton(() => FetchPopularMoviesUseCase( getIt()));
-    getIt.registerLazySingleton(() => FetchTopRatedMoviesUseCase( getIt()));
-    getIt.registerLazySingleton(() => FetchMovieDetailsUseCase( getIt()));
-    getIt.registerLazySingleton(() => FetchRelatedMoviesUseCase( getIt()));
+    getIt.registerLazySingleton(() => FetchPlayingNowMovieUseCase(getIt()));
+    getIt.registerLazySingleton(() => FetchPopularMoviesUseCase(getIt()));
+    getIt.registerLazySingleton(() => FetchTopRatedMoviesUseCase(getIt()));
+    getIt.registerLazySingleton(() => FetchMovieDetailsUseCase(getIt()));
+    getIt.registerLazySingleton(() => FetchRelatedMoviesUseCase(getIt()));
 
     // repo
-    getIt.registerLazySingleton<BaseMovieRepo>(() => MovieRepoImplementation( baseMovieRemoteDataSource: getIt()));
-    getIt.registerLazySingleton<BaseGetMovieDetailsRepos>(() => MoviesDetailsDataReposImplementation( baseMovieDetailsRemoteDataSource: getIt()));
+    getIt.registerLazySingleton<BaseMovieRepo>(
+        () => MovieRepoImplementation(baseMovieRemoteDataSource: getIt()));
+    getIt.registerLazySingleton<BaseGetMovieDetailsRepos>(() =>
+        MoviesDetailsDataReposImplementation(
+            baseMovieDetailsRemoteDataSource: getIt()));
 
     // data source
-    getIt.registerLazySingleton<BaseMovieRemoteDataSource>(() => MovieRemoteDataSourceImplementation());
-    getIt.registerLazySingleton<BaseMovieDetailsRemoteDataSource>(() => MovieDetailsRemoteDataSourceImplementation());
+    getIt.registerLazySingleton<BaseMovieRemoteDataSource>(
+        () => MovieRemoteDataSourceImplementation());
+    getIt.registerLazySingleton<BaseMovieDetailsRemoteDataSource>(
+        () => MovieDetailsRemoteDataSourceImplementation());
   }
 }
