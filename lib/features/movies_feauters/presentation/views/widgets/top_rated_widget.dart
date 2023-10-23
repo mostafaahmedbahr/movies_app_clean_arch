@@ -6,6 +6,7 @@ import 'package:shimmer/shimmer.dart';
 import '../../../../../core/service_locator/service_locator.dart';
 import '../../../../../core/utils/app_constance.dart';
 import '../../../../../core/utils/dummy.dart';
+import '../../../../movie_details_feauters/presentation/views/movie_details_view.dart';
 import '../../all_controllers/controller3/movies_bloc.dart';
 
 class TopRatedCustomWidget extends StatelessWidget {
@@ -37,7 +38,9 @@ class TopRatedCustomWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: InkWell(
                         onTap: () {
-                          /// TODO : NAVIGATE TO  MOVIE DETAILS
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return   MovieDetailScreen(id: topRatedMoviesList.movieEntityId,);
+                          }));
                         },
                         child: ClipRRect(
                           borderRadius:

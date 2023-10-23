@@ -6,6 +6,7 @@ import 'package:movies_app_clean_arch/core/service_locator/service_locator.dart'
  import 'package:shimmer/shimmer.dart';
 
 import '../../../../../core/utils/app_constance.dart';
+import '../../../../movie_details_feauters/presentation/views/movie_details_view.dart';
 import '../../all_controllers/controller2/movies_bloc.dart';
 
 class PopularCustomWidget extends StatelessWidget {
@@ -36,7 +37,9 @@ class PopularCustomWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: InkWell(
                         onTap: () {
-                          /// TODO : NAVIGATE TO  MOVIE DETAILS
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return   MovieDetailScreen(id: popularMoviesList.movieEntityId,);
+                          }));
                         },
                         child: ClipRRect(
                           borderRadius:

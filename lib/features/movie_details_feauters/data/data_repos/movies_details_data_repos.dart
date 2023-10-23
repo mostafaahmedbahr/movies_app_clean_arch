@@ -4,6 +4,7 @@ import 'package:movies_app_clean_arch/features/movie_details_feauters/domain/ent
 import 'package:movies_app_clean_arch/features/movie_details_feauters/domain/repos/get_movie_details_repos.dart';
 
 import '../../../../core/nerwork/excption.dart';
+import '../../domain/entities/recommendation_entity.dart';
 import '../../domain/use_cases/fetch_movie_details_use_case.dart';
 import '../data_sources/movie_details_remote_data_source.dart';
 
@@ -28,9 +29,9 @@ class MoviesDetailsDataReposImplementation extends BaseGetMovieDetailsRepos {
   }
 
   @override
-  Future<Either<Errors, MovieDetailsEntities>> fetchRelatedMovies()async {
+  Future<Either<Errors, List<RecommendationEntity>>> fetchRelatedMovies(MovieDetailsParams params)async {
     try{
-      var  result = await baseMovieDetailsRemoteDataSource.fetchRelatedMoviesInRemoteDataSource();
+      var  result = await baseMovieDetailsRemoteDataSource.fetchRelatedMoviesInRemoteDataSource(params);
       return right(result);
     }
     on ServerError catch(error)
